@@ -57,6 +57,14 @@ public class TechnologyClientController {
         mv.setViewName("techs/allTechs"); 
         
         logger.info("got all tech objects " + objs);
+        
+        try {
+        	logger.info("waiting for 35 seconds");
+            Thread.sleep(35*1000);
+         } catch (InterruptedException e) {
+           e.printStackTrace();
+         }
+        
         return mv; 
 	}
 
