@@ -58,13 +58,13 @@ public class TechnologyClientController {
         
         logger.info("got all tech objects " + objs);
         
-        try {
+        /*try {
         	logger.info("waiting for 1 seconds");
             Thread.sleep(1*1000);
          } catch (InterruptedException e) {
            e.printStackTrace();
          }
-        
+        */ 
         return mv; 
 	}
 
