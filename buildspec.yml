@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Pre-Build started on `date`
       - echo "Creating application.properties file"
-      - sed -i 's/springdatatest/$ALB_SERVER_DNS/' src/main/resources/application-aws.properties
+      - sed -i 's/springdatatest/$ALB_SERVER_DNS/' src/main/resources/application.properties
       - ls -lrt src/main/resources/application.properties
       - cat src/main/resources/application.properties
   build:
