@@ -3,13 +3,17 @@ version: 0.1
 phases:
   build:
     commands:
-      - echo Build started on `date`
-      - mvn test
-  post_build:
-    commands:
       - echo Build completed on `date`
       - mvn clean package
+
+  post_build:
+    commands:
+      - cp target/Client-0.0.1-SNAPSHOT.jar codedeploy 
+      - ls -lrt codedeploy
+      - cd codedeploy && zip -r ../client.zip * 
+      - ls -lrt client.zip
 artifacts:
   files:
-    - target/Client-0.0.1-SNAPSHOT.jar
+    - client.zip
+  discard-paths: yes
 
