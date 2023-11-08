@@ -18,10 +18,9 @@ phases:
       - echo bucket name is $BUCKET_NAME
       - cp target/Client-0.0.1-SNAPSHOT.jar codedeploy 
       - ls -lrt codedeploy
-      - cd codedeploy && zip -r ../client.zip * 
-      - ls -lrt client.zip
+
 artifacts:
   files:
-    - client.zip
+    - *
   discard-paths: yes
 
