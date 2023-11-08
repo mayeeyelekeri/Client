@@ -1,0 +1,26 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - echo Pre-Build started on `date`
+      - echo "Creating application.properties file"
+      - sed -i "s/APP_BASE_URL/$ALB_SERVER_DNS/" src/main/resources/application-aws.properties
+      - ls -lrt src/main/resources/application-aws.properties
+      - cat src/main/resources/application-aws.properties
+  build:
+    commands:
+      - echo Build completed on `date`
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo bucket name is $BUCKET_NAME
+      - cp target/Client-0.0.1-SNAPSHOT.jar codedeploy 
+      - ls -lrt codedeploy
+      - cd codedeploy && zip -r ../client.zip * 
+      - ls -lrt client.zip
+artifacts:
+  files:
+    - client.zip
+  discard-paths: yes
