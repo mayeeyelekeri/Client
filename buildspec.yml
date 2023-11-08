@@ -21,9 +21,9 @@ phases:
 
 artifacts:
   files:
-    - DockerFile 
-    - appspec.yml
-    - scripts
-    - Client-0.0.1-SNAPSHOT.jar
+    - codedeploy/DockerFile 
+    - codedeploy/appspec.yml
+    - codedeploy/scripts
+    - codedeploy/Client-0.0.1-SNAPSHOT.jar
   discard-paths: no
 
