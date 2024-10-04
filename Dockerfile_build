@@ -1,0 +1,11 @@
+FROM maven:3.9.6-sapmachine
+
+# This is build image to run maven build
+# Pre-requisite:
+# 1) Pass a volume with java code using "-v <source>:/home/vagrant"
+# 2) Pass Userid to use (ex: --user vagrant:vagrant)
+# 3) Pass workdir (ex: --workdir /home/vagrant)
+# 4) Build script (buildUsingDocker.sh) should exist at the root of the source code
+
+# Setup run command
+CMD ["./buildUsingDocker.sh"]
